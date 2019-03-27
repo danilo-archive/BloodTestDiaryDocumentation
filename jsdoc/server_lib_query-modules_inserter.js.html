@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Blood Test Diary Documentation Source: server/lib/query-modules/inserter.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.readable.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Blood Test Diary Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-action-logger.html">action-logger</a></li><li><a href="module-action-logger-test.html">action-logger-test</a></li><li><a href="module-authenicator.html">authenicator</a></li><li><a href="module-authenticator-test.html">authenticator-test</a></li><li><a href="module-calendar-controller.html">calendar-controller</a></li><li><a href="module-calendar-functions.html">calendar-functions</a></li><li><a href="module-db-controller.html">db-controller</a></li><li><a href="module-db_controller_test.html">db_controller_test</a></li><li><a href="module-email-controller.html">email-controller</a></li><li><a href="module-email-generator.html">email-generator</a></li><li><a href="module-email-sender.html">email-sender</a></li><li><a href="module-json-controller.html">json-controller</a></li><li><a href="module-json-parser.html">json-parser</a></li><li><a href="module-logger.html">logger</a></li><li><a href="module-overdue-controller.html">overdue-controller</a></li><li><a href="module-query-controller.html">query-controller</a></li><li><a href="module-report-generator.html">report-generator</a></li><li><a href="module-server.html">server</a></li><li><a href="module-serverConnection.html">serverConnection</a></li><li><a href="module-token-functions-test.html">token-functions-test</a></li><li><a href="module-token-generator.html">token-generator</a></li><li><a href="module-token-generator-test.html">token-generator-test</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Database.html">Database</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#addCarer">addCarer</a></li><li><a href="global.html#addHospital">addHospital</a></li><li><a href="global.html#addPatient">addPatient</a></li><li><a href="global.html#addTest">addTest</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#arraysOfDatesEqual">arraysOfDatesEqual</a></li><li><a href="global.html#callCommand">callCommand</a></li><li><a href="global.html#changePatientColour">changePatientColour</a></li><li><a href="global.html#changeTestStatus">changeTestStatus</a></li><li><a href="global.html#characterCheck">characterCheck</a></li><li><a href="global.html#checkMultipleQueriesStatus">checkMultipleQueriesStatus</a></li><li><a href="global.html#deleteCarer">deleteCarer</a></li><li><a href="global.html#deleteHospital">deleteHospital</a></li><li><a href="global.html#deletePatient">deletePatient</a></li><li><a href="global.html#deleteQueryDatabase">deleteQueryDatabase</a></li><li><a href="global.html#deleteTest">deleteTest</a></li><li><a href="global.html#editCarer">editCarer</a></li><li><a href="global.html#editHospital">editHospital</a></li><li><a href="global.html#editPatient">editPatient</a></li><li><a href="global.html#editTest">editTest</a></li><li><a href="global.html#editUser">editUser</a></li><li><a href="global.html#emailCheck">emailCheck</a></li><li><a href="global.html#emptyCheck">emptyCheck</a></li><li><a href="global.html#getAllPatients">getAllPatients</a></li><li><a href="global.html#getAllUsers">getAllUsers</a></li><li><a href="global.html#getCarer">getCarer</a></li><li><a href="global.html#getCompletedLateInMonth">getCompletedLateInMonth</a></li><li><a href="global.html#getCompletedOnTimeInMonth">getCompletedOnTimeInMonth</a></li><li><a href="global.html#getDueTestsInMonth">getDueTestsInMonth</a></li><li><a href="global.html#getFullPatientInfo">getFullPatientInfo</a></li><li><a href="global.html#getHospital">getHospital</a></li><li><a href="global.html#getLastLineOfFile">getLastLineOfFile</a></li><li><a href="global.html#getMonthAndYear">getMonthAndYear</a></li><li><a href="global.html#getMonthName">getMonthName</a></li><li><a href="global.html#getNextTestsOfPatient">getNextTestsOfPatient</a></li><li><a href="global.html#getNumberOfRemindersSent">getNumberOfRemindersSent</a></li><li><a href="global.html#getOverdueReminderGroups">getOverdueReminderGroups</a></li><li><a href="global.html#getPatient">getPatient</a></li><li><a href="global.html#getPatientsNumber">getPatientsNumber</a></li><li><a href="global.html#getTest">getTest</a></li><li><a href="global.html#getTestInfo">getTestInfo</a></li><li><a href="global.html#getTestsDuringTheWeek">getTestsDuringTheWeek</a></li><li><a href="global.html#getTestWithinWeek">getTestWithinWeek</a></li><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#insertQueryDatabase">insertQueryDatabase</a></li><li><a href="global.html#integerCheck">integerCheck</a></li><li><a href="global.html#intRegex">intRegex</a></li><li><a href="global.html#prepareDeleteSQL">prepareDeleteSQL</a></li><li><a href="global.html#prepareInsertSQL">prepareInsertSQL</a></li><li><a href="global.html#prepareUpdateSQL">prepareUpdateSQL</a></li><li><a href="global.html#requestEditing">requestEditing</a></li><li><a href="global.html#returnToken">returnToken</a></li><li><a href="global.html#selectQueryDatabase">selectQueryDatabase</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#updateLastReminder">updateLastReminder</a></li><li><a href="global.html#updateQueryDatabase">updateQueryDatabase</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: server/lib/query-modules/inserter.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">const authenticator = require("../authenticator.js");
+const actionLogger = require("../action-logger");
+const databaseController = require("../db_controller/db-controller.js");
+const mysql = require("mysql");
+
+/**
+* Add new user to the database
+* @param {JSON} - user
+* @param {string} actionUsername The user who issued the request.
+* Obligatory properties within JSON
+* @property username {String}
+* @property hashed_password {String}
+* @property email {String}
+* @property isAdmin {string} "yes" | "no"
+* @return {JSON} result of the query - {success:Boolean}
+**/
+async function addUser(json, actionUsername) {
+  const iterations = authenticator.produceIterations();
+  const salt = authenticator.produceSalt();
+  //Hash password to store it in database (password should be previously hashed with another algorithm on client side)
+  const hash = authenticator.produceHash(json.hashed_password, iterations, salt);
+  const user = {
+    username: json.username,
+   isAdmin: (json.isAdmin) ? json.isAdmin : "no",
+   salt: salt,
+   iterations: iterations,
+   hashed_password: hash,
+   recovery_email: json.recovery_email
+  }
+  const sql = prepareInsertSQL("User",user)
+  return await insertQueryDatabase(sql, "User", actionUsername, json.username);
+}
+
+/**
+ * Add new test to the database
+ * @param {JSON} - entry to add
+ * @param {string} actionUsername The user who issued the request.
+ * Obligatory properties within JSON
+ * @property patient_no
+ * @property due_date
+ * @return {JSON} result of the query - {success:Boolean}
+ **/
+async function addTest(json, actionUsername) {
+    const sql = prepareInsertSQL("Test", json);
+    return await insertQueryDatabase(sql, "Test", actionUsername);
+}
+
+/**
+ * Add new patient to the database
+ * @param {JSON} - entry to add
+ * @param {string} actionUsername The user who issued the request.
+ * Obligatory properties within JSON
+ * @property patient_no
+ * @property patient_name
+ * @property patient_surname
+ * @property hospital_id
+ * @property carer_id
+ * @return {JSON} result of the query - {success:Boolean}
+ **/
+async function addPatient(json, actionUsername) {
+    const sql = prepareInsertSQL("Patient", json);
+    return await insertQueryDatabase(
+        sql,
+        "Patient",
+        actionUsername,
+        json.patient_no
+    );
+}
+
+/**
+ * Add new Hospital to the database
+ * @param {JSON} - entry to add
+ * @param {string} actionUsername The user who issued the request.
+ * Obligatory properties within JSON
+ * @property hospital_email
+ * @return {JSON} result of the query - {success:Boolean}
+ **/
+async function addHospital(json, actionUsername) {
+    const sql = prepareInsertSQL("Hospital", json);
+    return await insertQueryDatabase(sql, "Hospital", actionUsername);
+}
+
+/**
+ * Add new carer to the database
+ * @param {JSON} - entry to add
+ * @param {string} actionUsername The user who issued the request.
+ * Obligatory properties within JSON
+ * @property carer_email
+ * @return {JSON} result of the query - {success:Boolean}
+ **/
+async function addCarer(json, actionUsername) {
+    const sql = prepareInsertSQL("Carer", json);
+    return await insertQueryDatabase(sql, "Carer", actionUsername);
+}
+
+/**
+ * Run INSERT query on the database
+ * @param {String} sql - SQL query
+ * @param {string} tableName Name of the table which we are inserting into.
+ * @param {string} id Specify new entry's ID, unless the ID is auto generated.
+ * @param {string} actionUsername The user who issued the request.
+ * @return {JSON} result of the query - {success:Boolean}
+ **/
+async function insertQueryDatabase(sql, tableName, actionUsername, id = undefined) {
+    const response = await databaseController.insertQuery(sql);
+    if (response.status == "OK") {
+        id = id === undefined ? response.response.insertId : id;
+        actionLogger.logInsert(actionUsername, tableName, id, "Successful.");
+        return { success: true, response: { insertId: id } };
+    }else if (response.err.type === "SQL Error") {
+        actionLogger.logInsert(actionUsername,tableName,"-1","Unsuccessfully tried to execute query: >>" +sql +"&lt;&lt;. SQL Error message: >>" +response.err.sqlMessage +"&lt;&lt;.");
+    } else {
+        actionLogger.logInsert(actionUsername,tableName,"-1","Unsuccessfully tried to execute query: >>" +sql +"&lt;&lt;. Invalid request error message: >>" +response.err.cause +"&lt;&lt;.");
+    }
+    return { success: false };
+}
+
+/**
+ * Prepare INSERT query on the database
+ * @param {String} table - Table in which to insert an entry
+ * @param {JSON} object -  JSON, which is being entered
+ * @return {String} SQL query
+ **/
+function prepareInsertSQL(table, object) {
+    let sql = `INSERT INTO ${table}(`;
+    const properties = Object.keys(object);
+    for (let i = 0; i &lt; properties.length - 1; i++) {
+        sql += `${properties[i]},`;
+    }
+    sql += `${properties[properties.length - 1]}) Values(`;
+    const values = Object.values(object);
+    for (let i = 0; i &lt; values.length - 1; i++) {
+        if (values[i] === undefined ||
+            values[i] === null ||
+            values[i].length === 0 ||
+            values[i] === "null" ||
+            values[i] === "NULL"){
+
+            sql += "NULL,";
+        } else {
+            sql += `${mysql.escape(values[i])},`;
+        }
+    }
+    if (values[values.length - 1] === undefined ||
+        values[values.length - 1] === null ||
+        values[values.length - 1].length === 0 ||
+        values[values.length - 1] === "null" ||
+        values[values.length - 1] === "NULL") {
+
+        sql += `NULL);`;
+    } else {
+        sql += `${mysql.escape(values[values.length - 1])});`;
+    }
+    return sql;
+}
+module.exports = {
+//INSERTS
+addTest,
+addUser,
+addPatient,
+addHospital,
+addCarer,
+//Helper functions - just for testing
+prepareInsertSQL,
+insertQueryDatabase,
+}
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Wed Mar 27th 2019
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

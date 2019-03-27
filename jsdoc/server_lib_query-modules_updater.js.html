@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Blood Test Diary Documentation Source: server/lib/query-modules/updater.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.readable.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Blood Test Diary Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-action-logger.html">action-logger</a></li><li><a href="module-action-logger-test.html">action-logger-test</a></li><li><a href="module-authenicator.html">authenicator</a></li><li><a href="module-authenticator-test.html">authenticator-test</a></li><li><a href="module-calendar-controller.html">calendar-controller</a></li><li><a href="module-calendar-functions.html">calendar-functions</a></li><li><a href="module-db-controller.html">db-controller</a></li><li><a href="module-db_controller_test.html">db_controller_test</a></li><li><a href="module-email-controller.html">email-controller</a></li><li><a href="module-email-generator.html">email-generator</a></li><li><a href="module-email-sender.html">email-sender</a></li><li><a href="module-json-controller.html">json-controller</a></li><li><a href="module-json-parser.html">json-parser</a></li><li><a href="module-logger.html">logger</a></li><li><a href="module-overdue-controller.html">overdue-controller</a></li><li><a href="module-query-controller.html">query-controller</a></li><li><a href="module-report-generator.html">report-generator</a></li><li><a href="module-server.html">server</a></li><li><a href="module-serverConnection.html">serverConnection</a></li><li><a href="module-token-functions-test.html">token-functions-test</a></li><li><a href="module-token-generator.html">token-generator</a></li><li><a href="module-token-generator-test.html">token-generator-test</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Database.html">Database</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#addCarer">addCarer</a></li><li><a href="global.html#addHospital">addHospital</a></li><li><a href="global.html#addPatient">addPatient</a></li><li><a href="global.html#addTest">addTest</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#arraysOfDatesEqual">arraysOfDatesEqual</a></li><li><a href="global.html#callCommand">callCommand</a></li><li><a href="global.html#changePatientColour">changePatientColour</a></li><li><a href="global.html#changeTestStatus">changeTestStatus</a></li><li><a href="global.html#characterCheck">characterCheck</a></li><li><a href="global.html#checkMultipleQueriesStatus">checkMultipleQueriesStatus</a></li><li><a href="global.html#deleteCarer">deleteCarer</a></li><li><a href="global.html#deleteHospital">deleteHospital</a></li><li><a href="global.html#deletePatient">deletePatient</a></li><li><a href="global.html#deleteQueryDatabase">deleteQueryDatabase</a></li><li><a href="global.html#deleteTest">deleteTest</a></li><li><a href="global.html#editCarer">editCarer</a></li><li><a href="global.html#editHospital">editHospital</a></li><li><a href="global.html#editPatient">editPatient</a></li><li><a href="global.html#editTest">editTest</a></li><li><a href="global.html#editUser">editUser</a></li><li><a href="global.html#emailCheck">emailCheck</a></li><li><a href="global.html#emptyCheck">emptyCheck</a></li><li><a href="global.html#getAllPatients">getAllPatients</a></li><li><a href="global.html#getAllUsers">getAllUsers</a></li><li><a href="global.html#getCarer">getCarer</a></li><li><a href="global.html#getCompletedLateInMonth">getCompletedLateInMonth</a></li><li><a href="global.html#getCompletedOnTimeInMonth">getCompletedOnTimeInMonth</a></li><li><a href="global.html#getDueTestsInMonth">getDueTestsInMonth</a></li><li><a href="global.html#getFullPatientInfo">getFullPatientInfo</a></li><li><a href="global.html#getHospital">getHospital</a></li><li><a href="global.html#getLastLineOfFile">getLastLineOfFile</a></li><li><a href="global.html#getMonthAndYear">getMonthAndYear</a></li><li><a href="global.html#getMonthName">getMonthName</a></li><li><a href="global.html#getNextTestsOfPatient">getNextTestsOfPatient</a></li><li><a href="global.html#getNumberOfRemindersSent">getNumberOfRemindersSent</a></li><li><a href="global.html#getOverdueReminderGroups">getOverdueReminderGroups</a></li><li><a href="global.html#getPatient">getPatient</a></li><li><a href="global.html#getPatientsNumber">getPatientsNumber</a></li><li><a href="global.html#getTest">getTest</a></li><li><a href="global.html#getTestInfo">getTestInfo</a></li><li><a href="global.html#getTestsDuringTheWeek">getTestsDuringTheWeek</a></li><li><a href="global.html#getTestWithinWeek">getTestWithinWeek</a></li><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#insertQueryDatabase">insertQueryDatabase</a></li><li><a href="global.html#integerCheck">integerCheck</a></li><li><a href="global.html#intRegex">intRegex</a></li><li><a href="global.html#prepareDeleteSQL">prepareDeleteSQL</a></li><li><a href="global.html#prepareInsertSQL">prepareInsertSQL</a></li><li><a href="global.html#prepareUpdateSQL">prepareUpdateSQL</a></li><li><a href="global.html#requestEditing">requestEditing</a></li><li><a href="global.html#returnToken">returnToken</a></li><li><a href="global.html#selectQueryDatabase">selectQueryDatabase</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#updateLastReminder">updateLastReminder</a></li><li><a href="global.html#updateQueryDatabase">updateQueryDatabase</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: server/lib/query-modules/updater.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">const actionLogger = require("../action-logger");
+const databaseController = require("../db_controller/db-controller.js");
+const mysql = require("mysql");
+const dateformat = require("dateformat");
+
+/**
+ * Edit test query
+ * @param testId The id of the test to be updated
+ * @param {JSON} newInfo All the information of the test (new and old)
+ * @param token The token that grants edit privileges
+ * @param {string} actionUsername The user who issued the request.
+ */
+async function editTest(testId, newInfo, token, actionUsername) {
+    const sql = prepareUpdateSQL("Test", newInfo, "test_id");
+    return await updateQueryDatabase("Test",testId,sql,token,actionUsername);
+}
+
+/**
+ * Edit patient query
+ * @param {JSON} newInfo All the information of the patient to update
+ * Obligatory fields in JSON
+ * @property patient_no {String}
+ * @param token The token that grants edit privileges
+ * @param {string} actionUsername The user who issued the request.
+ */
+async function editPatient(newInfo, token, actionUsername) {
+    const sql = prepareUpdateSQL("Patient", newInfo, "patient_no");
+    return await updateQueryDatabase("Patient",newInfo.patient_no,sql,token,actionUsername);
+}
+
+/**
+ * Edit hospital query
+ * @param {JSON} newInfo All the information of the hospital to update
+ * Obligatory fields in JSON
+ * @property hospital_id {String}
+ * @param token The token that grants edit privileges
+ * @param {string} actionUsername The user who issued the request.
+ */
+async function editHospital(newInfo, token, actionUsername) {
+    const sql = prepareUpdateSQL("Hospital", newInfo, "hospital_id");
+    return await updateQueryDatabase("Hospital",newInfo.hospital_id,sql,token,actionUsername);
+}
+
+/**
+ * Edit carer query
+ * @param {JSON} newInfo All the information of the carer to update
+ * @property carer_id {String}
+ * @param token The token that grants edit privileges
+ * @param {string} actionUsername The user who issued the request.
+ */
+async function editCarer(newInfo, token, actionUsername) {
+    const sql = prepareUpdateSQL("Carer", newInfo, "carer_id");
+    return await updateQueryDatabase("Carer",newInfo.carer_id,sql,token,actionUsername);
+}
+
+async function changeTestDueDate(testId,token, newDate, actionUsername) {
+  newDate = dateformat(newDate, "yyyymmdd");
+  const sql = `UPDATE Test SET due_date=${mysql.escape(newDate)} WHERE test_id = ${mysql.escape(testId)};`;
+  return await updateQueryDatabase("Test",testId,sql,token,actionUsername);
+}
+
+/**
+ * Update User in database
+ * @param {JSON} json - user
+ * @param {string} actionUsername The user who issued the request.
+ * Obligatory properties:
+ * @property username {String},
+ * One of optional properties
+ * Optional properties:
+ * @property recovery_email {String}
+ * @property hashed_password {String}
+ * @return {JSON} - {success:Boolean response:Array or Error}
+ **/
+async function editUser(json, token, actionUsername){
+  const user = {username: json.username}
+  if(json.hashed_password){
+    user["hashed_password"] = json.hashed_password
+  }
+  if(json.recovery_email){
+    user["recovery_email"] = json.recovery_email;
+  }
+  if(json.isAdmin){
+    user["isAdmin"]=json.isAdmin;
+  }
+  const sql = prepareUpdateSQL("User",user,"username");
+  return await updateQueryDatabase("User", user.username, sql, token, actionUsername);
+}
+
+/**
+* Change the status of the test in the database
+* @param {JSON} test
+* @param {string} actionUsername The user who issued the request.
+* @property testId {String} - id of a test to change
+* @property newStatus {enum: "completed"/"late"/"inReview"} - new status of a test
+* @return {JSON} result of the query - {success:true/false response:Array/Error}
+**/
+async function changeTestStatus(test,token,actionUsername) {
+  let status;
+  let date;
+  switch (test.newStatus) {
+      case "completed": {
+          status = "yes";
+          date = `CURDATE()`;
+          break;
+      }
+      case "late": {
+          status = "no";
+          date = `NULL`;
+          break;
+      }
+      case "inReview": {
+          status = "in review";
+          date = `CURDATE()`;
+          break;
+      }
+      default:
+          return { success: false, response: "NO SUCH UPDATE" };
+  }
+  const sql = `UPDATE Test SET completed_status=${mysql.escape(status)}, completed_date=${date} WHERE test_id = ${mysql.escape(test.testId)};`;
+  return await updateQueryDatabase("Test",test.testId,sql,token,actionUsername);
+}
+
+/**
+ * Update when the last reminder for this test was sent.
+ *
+ * @param {string} testId - id of a test to change
+ * @param {string} token - The token that grants edit privileges.
+ * @param {string} actionUsername The user who issued the request.
+ * @return {JSON} result of the query - {success:true/false response:Array/Error}
+ **/
+async function updateLastReminder(testId, token, actionUsername) {
+    let sql = "UPDATE Test SET last_reminder = CURDATE(), reminders_sent = reminders_sent + 1 WHERE test_id= ? ";
+    sql = mysql.format(sql, [testId]);
+    return await updateQueryDatabase("Test", testId, sql, token, actionUsername);
+}
+
+async function changeTestColour(testId, newColour,token, actionUsername) {
+  newColour = newColour == null ? "NULL" : mysql.escape(newColour);
+  const sql = `UPDATE Test SET test_colour=${newColour} WHERE test_id = ${mysql.escape(testId)};`;
+  return await updateQueryDatabase("Test",testId,sql,token,actionUsername);
+}
+
+/**
+ * Edit patient colour - quick update.
+ *
+ * @param {String} patientNo Number of the patient to update
+ * @param {string} newColour - New colour to be stored.
+ * @returns result of the query - {success:Boolean response:Array/Error}
+ */
+async function changePatientColour(patientNo, newColour,token,actionUsername) {
+    newColour = newColour == null ? "NULL" : mysql.escape(newColour);
+    const sql = `UPDATE Patient SET patient_colour=${newColour} WHERE patient_no = ${mysql.escape(patientNo)};`;
+    return await updateQueryDatabase("Patient",patientNo,sql,token,actionUsername);
+}
+
+/**
+ * Prepare UPDATE query on the database
+ * @param {String} table - Table in which to insert an entry
+ * @param {JSON} object -  JSON, which is being entered
+ * @param {String} idProperty - property, that the entry can be identified with
+ * @return {String} SQL query
+ **/
+function prepareUpdateSQL(table, object, idProperty) {
+    let sql = `Update ${table} SET `;
+    const properties = Object.keys(object);
+    const values = Object.values(object);
+    let pos;
+    for (let i = 0; i &lt; properties.length; i++) {
+        if (properties[i] != idProperty) {
+            if (values[i] === undefined || values[i] === null || values[i].length === 0 ||
+                values[i] === "null" || values[i] === "NULL") {
+                sql += `${properties[i]} = NULL, `;
+            } else {
+                sql += `${properties[i]} = ${mysql.escape(values[i])}, `;
+            }
+        } else {
+            pos = i;
+        }
+    }
+    //delete ", " from sql query
+    sql = sql.substr(0, sql.length - 2);
+    if (values[pos] === null || values[pos] === undefined || values[pos].length === 0 ||
+        values[pos] === "null" || values[pos] === "NULL") {
+        sql += ` WHERE ${idProperty} = NULL;`;
+    } else {
+        sql += ` WHERE ${idProperty} = ${mysql.escape(values[pos])};`;
+    }
+    //For debug:
+    //logger.debug(sql);
+    return sql;
+}
+
+/**
+ * Run UPDATE query on the database
+ * @param {String} table - Table to edit
+ * @param {String} id - id to edit
+ * @param {String} sql - SQL query
+ * @param {string} token - token to access entry
+ * @param {string} actionUsername The user who issued the request.
+ * @return {JSON} result of the query - {success:Boolean response:Array/Error}
+ **/
+async function updateQueryDatabase(table, id, sql, token, actionUsername) {
+    if (token) {
+        const response = await databaseController.updateQuery(sql,table,id,token);
+        if (response.status === "OK") {
+            actionLogger.logUpdate(actionUsername, table, id, "Successful.");
+            return { success: true, response: response.response };
+        } else if (response.err.type === "SQL Error") {
+            actionLogger.logUpdate(actionUsername,table,id,"Unsuccessfully tried to execute query: >>" +sql +"&lt;&lt;. SQL Error message: >>" +response.err.sqlMessage +"&lt;&lt;.");
+        } else {
+            actionLogger.logUpdate(actionUsername,table,id,"Unsuccessfully tried to execute query: >>" +sql +"&lt;&lt;. Invalid request error message: >>" +response.err.cause +"&lt;&lt;.");
+        }
+        return { success: false, response: response.err };
+    }
+    return {
+        success: false,
+        response: { problem: "Token in use/No token defined" }
+    };
+}
+
+module.exports = {
+  //UPDATES
+  editTest,
+  editCarer,
+  editHospital,
+  editPatient,
+  updateLastReminder,
+  changeTestStatus,
+  changeTestDueDate,
+  changeTestColour,
+  changePatientColour,
+  editUser,
+  //Helper functions - for tests only
+  updateQueryDatabase,
+  prepareUpdateSQL,
+}
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Wed Mar 27th 2019
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Blood Test Diary Documentation Source: server/lib/email/email-generator.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.readable.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Blood Test Diary Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-action-logger.html">action-logger</a></li><li><a href="module-action-logger-test.html">action-logger-test</a></li><li><a href="module-authenicator.html">authenicator</a></li><li><a href="module-authenticator-test.html">authenticator-test</a></li><li><a href="module-calendar-controller.html">calendar-controller</a></li><li><a href="module-calendar-functions.html">calendar-functions</a></li><li><a href="module-db-controller.html">db-controller</a></li><li><a href="module-db_controller_test.html">db_controller_test</a></li><li><a href="module-email-controller.html">email-controller</a></li><li><a href="module-email-generator.html">email-generator</a></li><li><a href="module-email-sender.html">email-sender</a></li><li><a href="module-json-controller.html">json-controller</a></li><li><a href="module-json-parser.html">json-parser</a></li><li><a href="module-logger.html">logger</a></li><li><a href="module-overdue-controller.html">overdue-controller</a></li><li><a href="module-query-controller.html">query-controller</a></li><li><a href="module-report-generator.html">report-generator</a></li><li><a href="module-server.html">server</a></li><li><a href="module-serverConnection.html">serverConnection</a></li><li><a href="module-token-functions-test.html">token-functions-test</a></li><li><a href="module-token-generator.html">token-generator</a></li><li><a href="module-token-generator-test.html">token-generator-test</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Database.html">Database</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#addCarer">addCarer</a></li><li><a href="global.html#addHospital">addHospital</a></li><li><a href="global.html#addPatient">addPatient</a></li><li><a href="global.html#addTest">addTest</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#arraysOfDatesEqual">arraysOfDatesEqual</a></li><li><a href="global.html#callCommand">callCommand</a></li><li><a href="global.html#changePatientColour">changePatientColour</a></li><li><a href="global.html#changeTestStatus">changeTestStatus</a></li><li><a href="global.html#characterCheck">characterCheck</a></li><li><a href="global.html#checkMultipleQueriesStatus">checkMultipleQueriesStatus</a></li><li><a href="global.html#deleteCarer">deleteCarer</a></li><li><a href="global.html#deleteHospital">deleteHospital</a></li><li><a href="global.html#deletePatient">deletePatient</a></li><li><a href="global.html#deleteQueryDatabase">deleteQueryDatabase</a></li><li><a href="global.html#deleteTest">deleteTest</a></li><li><a href="global.html#editCarer">editCarer</a></li><li><a href="global.html#editHospital">editHospital</a></li><li><a href="global.html#editPatient">editPatient</a></li><li><a href="global.html#editTest">editTest</a></li><li><a href="global.html#editUser">editUser</a></li><li><a href="global.html#emailCheck">emailCheck</a></li><li><a href="global.html#emptyCheck">emptyCheck</a></li><li><a href="global.html#getAllPatients">getAllPatients</a></li><li><a href="global.html#getAllUsers">getAllUsers</a></li><li><a href="global.html#getCarer">getCarer</a></li><li><a href="global.html#getCompletedLateInMonth">getCompletedLateInMonth</a></li><li><a href="global.html#getCompletedOnTimeInMonth">getCompletedOnTimeInMonth</a></li><li><a href="global.html#getDueTestsInMonth">getDueTestsInMonth</a></li><li><a href="global.html#getFullPatientInfo">getFullPatientInfo</a></li><li><a href="global.html#getHospital">getHospital</a></li><li><a href="global.html#getLastLineOfFile">getLastLineOfFile</a></li><li><a href="global.html#getMonthAndYear">getMonthAndYear</a></li><li><a href="global.html#getMonthName">getMonthName</a></li><li><a href="global.html#getNextTestsOfPatient">getNextTestsOfPatient</a></li><li><a href="global.html#getNumberOfRemindersSent">getNumberOfRemindersSent</a></li><li><a href="global.html#getOverdueReminderGroups">getOverdueReminderGroups</a></li><li><a href="global.html#getPatient">getPatient</a></li><li><a href="global.html#getPatientsNumber">getPatientsNumber</a></li><li><a href="global.html#getTest">getTest</a></li><li><a href="global.html#getTestInfo">getTestInfo</a></li><li><a href="global.html#getTestsDuringTheWeek">getTestsDuringTheWeek</a></li><li><a href="global.html#getTestWithinWeek">getTestWithinWeek</a></li><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#insertQueryDatabase">insertQueryDatabase</a></li><li><a href="global.html#integerCheck">integerCheck</a></li><li><a href="global.html#intRegex">intRegex</a></li><li><a href="global.html#prepareDeleteSQL">prepareDeleteSQL</a></li><li><a href="global.html#prepareInsertSQL">prepareInsertSQL</a></li><li><a href="global.html#prepareUpdateSQL">prepareUpdateSQL</a></li><li><a href="global.html#requestEditing">requestEditing</a></li><li><a href="global.html#returnToken">returnToken</a></li><li><a href="global.html#selectQueryDatabase">selectQueryDatabase</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#updateLastReminder">updateLastReminder</a></li><li><a href="global.html#updateQueryDatabase">updateQueryDatabase</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: server/lib/email/email-generator.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+* The functions exported from this module generate different types of emails depending on their purpose.
+They all need information contained in the "email_info" JSON objects.
+* @example &lt;caption>The email_info JSON needs to reflect this format in order to be properly parsed:&lt;/caption>
+{
+  "patient": {
+    "patient_no": "P799886",
+    "patient_name": "Bruce",
+    "patient_surname": "Wayne",
+    "patient_email": "imnotbatman@gotham.com",
+    "patient_phone": null,
+    "hospital_id": 551,
+    "carer_id": null,
+    "additional_info": null
+  },
+  "test": {
+    "test_id": 1,
+    "patient_no": "P799886",
+    "due_date": date_obj,  //a date object
+    "frequency": "4-W",
+    "occurrences": 9,
+    "completed_status": "yes",
+    "completed_date": date_obj, //a date object
+    "notes": null
+  },
+  "hospital": {
+    "hospital_id": 551,
+    "hospital_name": "Gotham City Hospital",
+    "hospital_email": "hospital@gotham.com",
+    "hospital_phone": null
+  }
+  "user":{
+    "username": "admin"
+    "new_password": "newpassword123"
+    "recovery_email": "admin@admin.com"
+  }
+}
+* @module email-generator
+ * @author Danilo Del Busso, Luka Kralj
+ * @version 0.0.2
+ */
+
+
+/*
+|--------------------------------------------------------------------------
+| MODULE EXPORTS
+|--------------------------------------------------------------------------
+*/
+module.exports = {
+    testReminderForPatient,
+    testReminderForHospital,
+    overdueTestReminderForPatient,
+    overdueTestReminderForHospital,
+    passwordRecoveryEmail
+};
+
+const dateformat = require('dateformat');
+const mjml2html = require("mjml");
+
+/*
+|--------------------------------------------------------------------------
+| EMAIL GENERATION FUNCTIONS
+|--------------------------------------------------------------------------
+| This section contains the functions which generate html code for different kinds of email
+|
+*/
+
+/**
+ * Return html for an email containing info about a test which is overdue for a patient.
+ * @param {JSON} email_info the json containing info needed to generate the email. For format info look at the module's documentation.
+ * @returns {string} html for an email containing info about a test which is due for a patient
+ */
+async function overdueTestReminderForHospital(email_info, email_config) {
+    const greeting = "Dear colleagues,";
+    const computed_html = mjml2html(await generateReminderBody(email_info, email_config.content.overdueHospital, greeting, true, email_config));
+
+    let subject = email_config.content.overdueHospital.subject.title;
+    const due_date = beautifyDate(email_info.test.due_date);
+    if (email_config.content.overdueHospital.subject.appendDate) {
+        subject += (subject.endsWith(" ")) ? due_date : " " + due_date;
+    }
+    if (computed_html.errors.length === 0) {
+        return {
+            to: email_info.hospital.hospital_email,
+            html: (computed_html.html + "&lt;br>" + getFooter(email_config)).replace(/--br--/g, "&lt;br>"),
+            subjectTitle: subject
+        };
+    }
+    return null;
+}
+
+/**
+ * Return html for an email containing info about a test which is overdue for a patient.
+ * @param {JSON} email_info the json containing info needed to generate the email. For format info look at the module's documentation.
+ * @returns {string} html for an email containing info about a test which is due for a patient
+ */
+async function overdueTestReminderForPatient(email_info, email_config) {
+    if (email_info.patient.patient_email === null ||
+        email_info.patient.patient_email === undefined ||
+        email_info.patient.patient_email.length === 0 ||
+        email_info.patient.patient_email === "null") {
+        return await overdueTestReminderForCarer(email_info, email_config);
+    }
+    let name = email_info.patient.patient_name;
+    let surname = email_info.patient.patient_surname;
+    name = (name === null  || name === undefined|| name.length === 0 || name === "null") ? undefined : name;
+    surname = (surname === null || surname === undefined || surname.length === 0 || surname === "null") ? undefined : surname;
+
+    let greeting = "Dear ";
+    if (name &amp;&amp; surname) {
+        greeting += name + " " + surname + ",";
+    }
+    else {
+        greeting += "patient,";
+    }
+    const computed_html = mjml2html(await generateReminderBody(email_info, email_config.content.overduePatient, greeting, true, email_config));
+
+    let subject = email_config.content.overduePatient.subject.title;
+    const due_date = beautifyDate(email_info.test.due_date);
+    if (email_config.content.overduePatient.subject.appendDate) {
+        subject += (subject.endsWith(" ")) ? due_date : " " + due_date;
+    }
+
+    if (computed_html.errors.length === 0) {
+        return {
+            to: email_info.patient.patient_email,
+            html: (computed_html.html + "&lt;br>" + getFooter(email_config)).replace(/--br--/g, "&lt;br>"),
+            subjectTitle: subject
+        };
+    }
+    return null;
+}
+
+/**
+ * Return html for an email containing info about a test which is overdue for a patient.
+ * @param {JSON} email_info the json containing info needed to generate the email. For format info look at the module's documentation.
+ * @returns {string} html for an email containing info about a test which is due for a patient
+ */
+async function overdueTestReminderForCarer(email_info, email_config) {
+    if (email_info.carer === null || email_info.carer === undefined) {
+        return null;
+    }
+    let name = email_info.carer.carer_name;
+    let surname = email_info.carer.carer_surname;
+    name = (name === null || name === undefined || name.length === 0 || name === "null") ? undefined : name;
+    surname = (surname === null || surname === undefined || surname.length === 0 || surname === "null") ? undefined : surname;
+
+    let greeting = "Dear ";
+    if (name &amp;&amp; surname) {
+        greeting += name + " " + surname + ",";
+    }
+    else {
+        greeting += "carer,";
+    }
+    const computed_html = mjml2html(await generateReminderBody(email_info, email_config.content.overdueCarer, greeting, true, email_config));
+
+    let subject = email_config.content.overdueCarer.subject.title;
+    const due_date = beautifyDate(email_info.test.due_date);
+    if (email_config.content.overdueCarer.subject.appendDate) {
+        subject += (subject.endsWith(" ")) ? due_date : " " + due_date;
+    }
+    if (computed_html.errors.length === 0) {
+        return {
+            to: email_info.carer.carer_email,
+            html: (computed_html.html + "&lt;br>" + getFooter(email_config)).replace(/--br--/g, "&lt;br>"),
+            subjectTitle: subject
+        };
+    }
+    return null;
+}
+
+/**
+ * Return html for an email containing info about a new password which is generated for a User.
+ * @param {JSON} email_info the json containing info needed to generate the email. For format info look at the module's documentation.
+ * @returns {string} html for an email containing info about a test which is due for a patient
+ */
+async function passwordRecoveryEmail(email_info, email_config) {
+    const subject = email_config.content.recoveryEmail.subject;
+    const newPassword = email_info.user.new_password;
+    const computed_html = mjml2html(await generateRecoveryEmailBody(newPassword, email_config.content.recoveryEmail));
+
+    if (computed_html.errors.length === 0) {
+        return {
+            to: email_info.user.recovery_email,
+            html: (computed_html.html + "&lt;br>" + getFooter(email_config)).replace(/--br--/g, "&lt;br>"),
+            subjectTitle: subject
+        };
+    }
+    return null;
+}
+
+/**
+ * Return html for an email containing info about a test which is due for a patient.
+ * @param {JSON} email_info the json containing info needed to generate the email. For format info look at the module's documentation.
+ * @returns {string} html for an email containing info about a test which is due for a patient
+ */
+async function testReminderForPatient(email_info, email_config) {
+    if (email_info.patient.patient_email === null ||
+        email_info.patient.patient_email === undefined ||
+        email_info.patient.patient_email.length === 0 ||
+        email_info.patient.patient_email === "null") {
+        return await testReminderForCarer(email_info, email_config);
+    }
+    let name = email_info.patient.patient_name;
+    let surname = email_info.patient.patient_surname;
+    name = (name === null || name === undefined || name.length === 0 || name === "null") ? undefined : name;
+    surname = (surname === null || surname === undefined || surname.length === 0 || surname === "null") ? undefined : surname;
+
+    let greeting = "Dear ";
+    if (name &amp;&amp; surname) {
+        greeting += name + " " + surname + ",";
+    }
+    else {
+        greeting += "patient,";
+    }
+    const computed_html = mjml2html(await generateReminderBody(email_info, email_config.content.generalPatient, greeting, false, email_config));
+
+    let subject = email_config.content.generalPatient.subject.title;
+    const due_date = beautifyDate(email_info.test.due_date);
+    if (email_config.content.generalPatient.subject.appendDate) {
+        subject += (subject.endsWith(" ")) ? due_date : " " + due_date;
+    }
+    if (computed_html.errors.length === 0) {
+        return {
+            to: email_info.patient.patient_email,
+            html: (computed_html.html + "&lt;br>" + getFooter(email_config)).replace(/--br--/g, "&lt;br>"),
+            subjectTitle: subject
+        };
+    }
+    return null;
+}
+
+/**
+ * Generate an email aimed at hospitals which reminds of a blood test due for a patient of theirs
+ * @param {JSON} email_info the json containing info needed to generate the email. For format info look at the module's documentation.
+*/
+async function testReminderForHospital(email_info, email_config) {
+    const greeting = "Dear colleagues,";
+    const computed_html = mjml2html(await generateReminderBody(email_info, email_config.content.generalHospital, greeting, false, email_config));
+
+    let subject = email_config.content.generalHospital.subject.title;
+    const due_date = beautifyDate(email_info.test.due_date);
+    if (email_config.content.generalHospital.subject.appendDate) {
+        subject += (subject.endsWith(" ")) ? due_date : " " + due_date;
+    }
+    if (computed_html.errors.length === 0) {
+        return {
+            to: email_info.hospital.hospital_email,
+            html: (computed_html.html + "&lt;br>" + getFooter(email_config)).replace(/--br--/g, "&lt;br>"),
+            subjectTitle: subject
+        };
+    }
+    return null;
+}
+
+/**
+ * Generate an email aimed at carers which reminds of a blood test due for a patient
+ * @param {JSON} email_info the json containing info needed to generate the email. For format info look at the module's documentation.
+*/
+async function testReminderForCarer(email_info, email_config) {
+    if (email_info.carer === null || email_info.carer === undefined) {
+        return null;
+    }
+    let name = email_info.carer.carer_name;
+    let surname = email_info.carer.carer_surname;
+    name = (name === null || name === undefined || name.length === 0 || name === "null") ? undefined : name;
+    surname = (surname === null || surname === undefined || surname.length === 0 || surname === "null") ? undefined : surname;
+
+    let greeting = "Dear ";
+    if (name &amp;&amp; surname) {
+        greeting += name + " " + surname + ",";
+    }
+    else {
+        greeting += "carer,";
+    }
+    const computed_html = mjml2html(await generateReminderBody(email_info, email_config.content.generalCarer, greeting, false, email_config));
+
+    let subject = email_config.content.generalCarer.subject.title;
+    const due_date = beautifyDate(email_info.test.due_date);
+    if (email_config.content.generalCarer.subject.appendDate) {
+        subject += (subject.endsWith(" ")) ? due_date : " " + due_date;
+    }
+    if (computed_html.errors.length === 0) {
+        return {
+            to: email_info.carer.carer_email,
+            html: (computed_html.html + "&lt;br>" + getFooter(email_config)).replace(/--br--/g, "&lt;br>"),
+            subjectTitle: subject
+        };
+    }
+    return null;
+}
+
+/*
+|--------------------------------------------------------------------------
+| COMMON EMAIL ELEMENTS
+|--------------------------------------------------------------------------
+| This section contains the functions which generate mjml code for common elements in
+| the emails
+|
+*/
+
+/**
+ * Generates the body of the email according to the content configuration.
+ *
+ * @param {JSON} contentConfiguration - format: {
+            "subject": {
+                "title": "",
+                "appendDate": true|false
+            },
+            "mainBody": "",
+            "details": {
+                "includePatientNo": true|false,
+                "includePatientName": true|false,
+                "includePatientContact": true|false,
+                "includeDueDate": true|false
+            }
+        },
+ */
+async function generateReminderBody(emailInfo, contentConfiguration, greeting, isOverdue) {
+    const patient = emailInfo.patient;
+    const main = contentConfiguration.mainBody;
+    let html = `
+    &lt;mjml>
+       ${getHead("Blood Test Reminder")}
+       &lt;mj-body>
+          &lt;mj-section>
+             &lt;mj-column width="45%">
+                &lt;mj-text align="center" font-weight="500" padding="0px" font-size="18px">BLOOD TEST REMINDER&lt;/mj-text>
+                &lt;mj-divider border-width="2px" border-color="#616161" />
+                &lt;mj-divider border-width="2px" border-color="#616161" width="45%" />
+             &lt;/mj-column>
+          &lt;/mj-section>
+          &lt;mj-section padding-top="30px">
+          &lt;mj-column width="100%">
+          &lt;mj-text>
+              ${greeting} --br----br--
+              ${main} --br----br--
+    `;
+
+    let rows = "";
+    if (contentConfiguration.details.includePatientNo) {
+        rows += `&lt;i>Patient number:    &lt;/i>
+                ${patient.patient_no}--br--`;
+    }
+    if (contentConfiguration.details.includePatientName) {
+        let name = patient.patient_name;
+        let surname = patient.patient_surname;
+        name = (name === null || name === undefined || name.length === 0 || name === "null") ? undefined : name;
+        surname = (surname === null || surname === undefined || surname.length === 0 || surname === "null") ? undefined : surname;
+
+        if (name &amp;&amp; surname) {
+            rows += `&lt;i>Full name:    &lt;/i>
+                ${patient.patient_name} ${patient.patient_surname}--br--`;
+        }
+        else if (name) {
+            rows += `&lt;i>Name:    &lt;/i>
+                ${patient.patient_name}--br--`;
+        }
+        else if (surname) {
+            rows += `&lt;i>Name:    &lt;/i>
+                ${patient.patient_surname}--br--`;
+        }
+        
+    }
+    if (contentConfiguration.details.includePatientContact) {
+        if (!(patient.patient_email === null ||
+            patient.patient_email === undefined ||
+            patient.patient_email.length === 0 ||
+            patient.patient_email === "null")) {
+            rows += `&lt;i>Email:    &lt;/i>
+                ${patient.patient_email}--br--`;
+        }
+        if (!(patient.patient_phone === null ||
+            patient.patient_phone === undefined ||
+            patient.patient_phone.length === 0 ||
+            patient.patient_phone === "null")) {
+            rows += `&lt;i>Phone number:    &lt;/i>
+                ${patient.patient_phone}--br--`;
+        }
+    }
+
+    if (rows.length > 0) {
+        const tableHeader = `
+        &lt;b>Patient details:&lt;/b>--br----br--`;
+
+        html += tableHeader + rows + "--br--";
+    }
+
+    if (contentConfiguration.details.includeDueDate) {
+        const test_date = beautifyDate(emailInfo.test.due_date);
+        if (isOverdue) {
+            html += `
+              &lt;b>This test was due on ${test_date}.&lt;b> 
+            `;
+        }
+        else {
+            html += `
+              &lt;b>This test is due on ${test_date}.&lt;b> 
+            `;
+        }
+    }
+    html += `--br--&lt;/mj-text>
+            &lt;/mj-column>
+        &lt;/mj-section>
+    &lt;/mj-body>
+    &lt;/mjml>`;
+    return html;
+}
+
+/**
+ * Generates the body of the email according to the content configuration.
+ *
+ * @param {JSON} contentConfiguration - format: {
+            "subject": "",
+            "mainBody": "",
+        },
+ */
+async function generateRecoveryEmailBody(newPassword, contentConfiguration) {
+    const main = contentConfiguration.mainBody;
+    let html = `
+  &lt;mjml>
+     ${getHead("Password recovery")}
+     &lt;mj-body>
+        &lt;mj-section>
+           &lt;mj-column width="45%">
+              &lt;mj-text align="center" font-weight="500" padding="0px" font-size="18px">Password recovery email&lt;/mj-text>
+              &lt;mj-divider border-width="2px" border-color="#616161" />
+              &lt;mj-divider border-width="2px" border-color="#616161" width="45%" />
+           &lt;/mj-column>
+        &lt;/mj-section>
+        &lt;mj-section padding-top="30px">
+        &lt;mj-column width="100%">
+        &lt;mj-text>
+            Dear user, --br----br--
+            ${main} --br----br--
+            &lt;b>New password:    &lt;/b>${newPassword}--br--
+  `;
+
+    html += `--br--&lt;/mj-text>
+          &lt;/mj-column>
+      &lt;/mj-section>
+  &lt;/mj-body>
+  &lt;/mjml>`;
+    return html;
+}
+
+/**
+ * Get mjml code for image at the top of emails
+ * @return {string} mjml code for image at the top of emails
+ */
+function getLogo(email_config) {
+    const header_image_url = email_config.content.common.logo;
+    if (header_image_url == null) {
+        return "";
+    }
+    return `
+        &lt;div>
+            &lt;img src="${header_image_url}" alt="Logo" width="200">
+        &lt;/div>
+        `;
+}
+
+/**
+ * Get mjml code describing common head of emails
+ * @param {title} the title of the html document
+ * @return {string} mjml code describing common head of emails
+ */
+function getHead(title) {
+    return `
+    &lt;mj-head>
+       &lt;mj-title>${title}&lt;/mj-title>
+       &lt;mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto:300,500" />
+       &lt;mj-attributes>
+          &lt;mj-all font-family="Roboto, Helvetica, sans-serif" />
+          &lt;mj-text font-weight="300" font-size="16px" color="#616161" line-height="24px" />
+          &lt;mj-section padding="0px" />
+       &lt;/mj-attributes>
+    &lt;/mj-head>
+    `;
+}
+
+/**
+ * Get mjml code describing common footer of emails
+ * @return {string} mjml code describing common footer of emails
+ */
+function getFooter(email_config) {
+    return `--br--
+        ${getLogo(email_config)}--br--
+          
+        ${email_config.content.common.footer}
+          
+    `;
+}
+
+/**
+ * Beautify a date object as a readable string of "1st October 2020" format
+ * @param {date} date the date object to be beautified
+ * @returns {string} the beautified date
+ */
+function beautifyDate(date) {
+    return dateformat(date, "dS mmmm yyyy")
+}
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Wed Mar 27th 2019
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
